@@ -2,13 +2,15 @@ package org.launchcode.java.studios;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class CountingChar
 {
     public static void main(String[] args)
     {
         HashMap<Character, Integer> countedChar = new HashMap<>();
-        String myString = "AAaaaabbbccc ddd eee jjJ lll++Jjjj";
+        //String myString = "AAaaaabbbccc ddd eee jjJ lll++Jjjj";
+        String myString = nGUI();
         char[] charactersInString = myString.toCharArray();
         for(char ch : charactersInString)
         {
@@ -35,6 +37,16 @@ public class CountingChar
         {
             System.out.println(myChar.getKey() + ": " + myChar.getValue());
         }
+    }
+
+    public static String nGUI ()
+    {
+        Scanner in = new Scanner(System.in);
+        String myString;
+        System.out.println("Enter your string");
+        myString = in.nextLine();
+        return(myString);
+
     }
 }
 
