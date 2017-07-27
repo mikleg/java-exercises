@@ -8,19 +8,20 @@ public class CountingChar
     public static void main(String[] args)
     {
         HashMap<Character, Integer> countedChar = new HashMap<>();
-        String myString = "aaaabbbccc ddd eee jjj lll++jjjj";
+        String myString = "AAaaaabbbccc ddd eee jjJ lll++Jjjj";
         char[] charactersInString = myString.toCharArray();
         for(char ch : charactersInString)
         {
             if (Character.isLetter(ch))
             {
-                if (!countedChar.containsKey(ch))
+
+                if (!countedChar.containsKey(Character.toLowerCase(ch)))
                 {
-                    countedChar.put(ch,1);
+                    countedChar.put(Character.toLowerCase(ch),1);
                 }
                 else
                 {
-                    countedChar.replace(ch, countedChar.get(ch)+1);
+                    countedChar.replace(Character.toLowerCase(ch), countedChar.get(Character.toLowerCase(ch))+1);
                 }
             }
         }
