@@ -1,8 +1,15 @@
 package org.launchcode.java.studios;
 
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
+
 
 public class CountingChar
 {
@@ -41,11 +48,31 @@ public class CountingChar
 
     public static String nGUI ()
     {
+
         Scanner in = new Scanner(System.in);
-        String myString;
+        String myString = "";
+        /*
         System.out.println("Enter your string");
         myString = in.nextLine();
-        return(myString);
+        */
+        Path my_path = Paths.get("C:/Users/mikle/LC101/java-exercises", "string.txt");
+        List<String> fileLines;
+        Charset charset = Charset.forName("ISO-8859-1");
+        try
+        {
+            fileLines = Files.readAllLines(my_path, charset);
+            if (!fileLines.isEmpty())
+            {
+                myString = fileLines.get(0);
+            }
+            return(myString);
+        }
+        catch (IOException e)
+        {
+            System.out.println(e);
+            return("");
+        }
+
 
     }
 }
